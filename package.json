@@ -1,0 +1,22 @@
+{
+  "name": "shared-key",
+  "version": "1.0.0",
+  "description": "> This is just an idea I had one night, I have no idea if this is completely safe for creating a shared key, but it surely does seem right.  > I've been trying out different values for `n` and `b`, and get a good amount of compute time for each public key generation, even for \"smaller\" primes (`n = 75227`).  >  > I have also no idea if this is a novel idea or if I've just thought of something someone else has already thought of. I just wanted to write down what _I_ was thinking when I couldn't get to sleep!  > > I would assume that this could be used along with a time variable that integrates with each peers private key, or maybe a time factor in between keys, e.g. \"I expect this packet to take x long to get there, any longer and you're toast, any shorter and I guess you could wait? But check an expensive operation every millisecond\".  >  > What am I thinking really though? I would hope there would be some kind of solution where a shared private key could be generated between any group of people, slowly drifting forward where the key is driven by a community of trust between individuals and companies. >  > If this isn't a viable solution, then cool, I gave something a go :).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o-network/shared-key.git"
+  },
+  "author": "Fabian Cook <fabian.cook@open-network.dev>",
+  "license": "SEE LICENSE IN LICENCE",
+  "bugs": {
+    "url": "https://github.com/o-network/shared-key/issues"
+  },
+  "homepage": "https://github.com/o-network/shared-key#readme",
+  "dependencies": {
+    "pure-uuid": "^1.5.7"
+  }
+}

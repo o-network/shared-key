@@ -35,7 +35,7 @@ function randomUpToInt(n) {
 	return Math.round(Math.random() * n);
 }
 
-function Chain(base) {
+export function Chain(base) {
 
 	let parts = [];
 
@@ -67,7 +67,7 @@ function Chain(base) {
 
 }
 
-function Peer(pool, prime, base) {
+export function Peer(pool, prime, base) {
 	const privateKey = randomUpToInt(prime - 1);
 
 	const withParts = (parts) => {
@@ -97,7 +97,7 @@ function Peer(pool, prime, base) {
 	};
 }
 
-function Pool() {
+export function Pool() {
 
 	const { prime, base } = getPrimeAndBase();
 
@@ -151,5 +151,3 @@ function go() {
 	console.log(peers.map(peer => pool.poolKey(peer)));
 	pool.tellTheWorld(peers[0]);
 }
-
-go();
