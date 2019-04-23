@@ -5,14 +5,15 @@ import { chain } from "./src/chain";
 
   const group = await createPeerGroup();
 
-  const peers = await Promise.all(Array.from({ length: 10 }, () => createPeer(group)));
+  const peers = await Promise.all(Array.from({ length: 5 }, () => createPeer(group)));
 
   const secrets = await Promise.all(
     peers.map(
       async (me, index) => {
         const others = peers.slice();
         others.splice(index, 1);
-        const fullChain = await  chain(chain([], getNextHead, ...others), getSecret, me);
+        const publicChain = await chain([], getNextHead, ...others);
+        const fullChain = await chain(publicChain, getSecret, me);
         return fullChain[fullChain.length - 1].head;
       }
     )

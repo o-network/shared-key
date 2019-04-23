@@ -1,2 +1,4 @@
 node_modules
 .idea
+my-private-key.json
+public-key-*

@@ -21,6 +21,7 @@ export async function createPeer(group) {
   const keyExchange = crypto.getDiffieHellman(group[SYMBOL_GROUP_NAME]);
 
   keyExchange.generateKeys();
+
   const id = new UUID(4).format();
   const peer = {
     id,
@@ -48,7 +49,7 @@ function shouldGetNextHead(chain, peer) {
 export async function getSecret(chain, peer) {
   const previous = chain[chain.length - 1];
   const nextBase = previous ? previous.head : getGenerator(peer);
-  return peer[SYMBOL_KEY_EXCHANGE].computeSecret(nextBase);
+  return peer[SYMBOL_KEY_EXCHANGE].computeSecret(nextBase, typeof nextBase === "string" ? "hex" : undefined);
 }
 
 export async function getNextHead(chain, peer) {
